@@ -1,0 +1,37 @@
+### STRIPE TEST PAYMENT CREDENTIALS ###
+
+--- SUCCESSFUL PAYMENTS ---
+
+Standard Card:
+Number: 4242 4242 4242 4242
+Expiry: Any future date (e.g., 12/26)
+CVC: Any 3-digit number (e.g., 123)
+Postal Code: Any (e.g., 12345)
+
+3D Secure (SCA) Card:
+Number: 4000 0000 0000 0002
+Expiry: Any future date
+CVC: Any 3-digit number
+Note: Will trigger a mock authentication popup.
+
+--- FAILURE SCENARIOS (FOR TESTING ERRORS) ---
+
+Card Declined:
+Number: 4000 0000 0000 0005
+Note: Generic decline.
+
+Insufficient Funds:
+Number: 4000 0000 0000 0501
+
+Expired Card:
+Number: 4000 0000 0000 0069
+
+Incorrect CVC:
+Number: 4000 0000 0000 0127
+
+Processing Error:
+Number: 4000 0000 0000 0119
+
+--- NOTES ---
+- These cards only work when the Stripe API is in 'Test Mode'.
+- For SSLCommerz testing, use their official sandbox credentials provided in their documentation.

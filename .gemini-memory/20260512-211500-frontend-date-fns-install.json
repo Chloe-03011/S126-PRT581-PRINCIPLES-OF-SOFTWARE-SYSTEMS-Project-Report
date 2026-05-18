@@ -1,0 +1,10 @@
+{
+  "id": "20260512-211500-frontend-date-fns-install",
+  "title": "Installed date-fns Dependency",
+  "summary": "Installed 'date-fns' in the frontend project to resolve a Vite 'Failed to resolve import' error in 'NotificationBell.jsx', where 'formatDistanceToNow' is used.",
+  "code_files": [
+    "Crowdfunding/package.json",
+    "Crowdfunding/src/Components/Shared/NotificationBell.jsx"
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "20260512-204500-notification-routes-auth-fix",
+  "title": "Fixed NotificationRoutes Middleware Crash",
+  "summary": "Resolved a backend SyntaxError where 'notificationRoutes.js' attempted to import a non-existent 'verifyToken' from 'authMiddleware.js'. Updated the route to use the correct 'verifyJWT' middleware.",
+  "code_files": [
+    "Crowdfunding-Server/routes/notificationRoutes.js"
+  ],
+  "status": "completed"
+}

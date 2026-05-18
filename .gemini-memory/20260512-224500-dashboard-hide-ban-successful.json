@@ -1,0 +1,9 @@
+{
+  "id": "20260512-224500-dashboard-hide-ban-successful",
+  "title": "Refined Campaign Ban Logic",
+  "summary": "Updated the 'Campaign Approvals' tab in the Dashboard to hide the 'Ban' action for campaigns with a 'successful' status. This prevents administrative actions on completed and successful projects while maintaining control over other states.",
+  "code_files": [
+    "Crowdfunding/src/Pages/Dashboard.jsx"
+  ],
+  "status": "completed"
+}

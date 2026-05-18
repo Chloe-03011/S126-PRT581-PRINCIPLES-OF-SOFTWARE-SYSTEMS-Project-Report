@@ -1,0 +1,11 @@
+{
+  "id": "20260512-223000-dashboard-approvals-enhancement",
+  "title": "Enhanced Campaign Approval Dashboard & Banning System",
+  "summary": "Updated the 'Campaign Approvals' tab to show all relevant campaign statuses (pending, active, successful, failed, banned). Implemented a 'Ban/Unban' toggle functionality on both frontend and backend, including a new 'banned' status in the Campaign model. Enhanced the UI to show status badges and administrative controls for all campaigns.",
+  "code_files": [
+    "Crowdfunding-Server/models/Campaign.js",
+    "Crowdfunding-Server/routes/campaignRoutes.js",
+    "Crowdfunding/src/Pages/Dashboard.jsx"
+  ],
+  "status": "completed"
+}

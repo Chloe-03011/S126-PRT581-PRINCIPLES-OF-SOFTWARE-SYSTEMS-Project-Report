@@ -1,0 +1,9 @@
+{
+  "id": "20260512-213000-notification-context-array-safety",
+  "title": "Fixed Notification Map Error & Switched to API Instance",
+  "summary": "Resolved 'TypeError: notifications.map is not a function' by adding Array.isArray checks to all state updates in NotificationContext.jsx. Also updated the context to use the configured 'api' instance instead of raw axios for consistent baseURL and credentials handling.",
+  "code_files": [
+    "Crowdfunding/src/Contexts/NotificationContext.jsx"
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "20260512-203000-notification-provider-import-fix",
+  "title": "Fixed NotificationProvider ReferenceError",
+  "summary": "Resolved an 'Uncaught ReferenceError: NotificationProvider is not defined' in main.jsx by adding the missing import from './Contexts/NotificationContext'.",
+  "code_files": [
+    "Crowdfunding/src/main.jsx"
+  ],
+  "status": "completed"
+}

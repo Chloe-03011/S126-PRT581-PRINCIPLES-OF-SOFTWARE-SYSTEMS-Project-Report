@@ -1,0 +1,166 @@
+{
+  "project": "Nitun Sir",
+  "created": "2026-05-11",
+  "version": "1.0",
+  "contexts": [
+    {
+      "id": "20260511-120000-project-architecture",
+      "title": "Project Architecture & Tech Stack",
+      "date": "2026-05-11",
+      "time": "12:00",
+      "stack": "mern",
+      "keywords": ["architecture", "mern", "vite", "express", "mongoose", "tailwind"],
+      "summary": "Full-stack Crowdfunding platform with React (Vite) frontend and Node.js/Express backend.",
+      "solution": "Frontend: React 19, Vite, Tailwind. Backend: Express 5, Mongoose.",
+      "code_files": ["Crowdfunding/package.json", "Crowdfunding-Server/package.json", "Crowdfunding-Server/index.js"],
+      "status": "completed"
+    },
+    {
+      "id": "20260511-120500-auth-system",
+      "title": "Authentication System (JWT/Cookies)",
+      "date": "2026-05-11",
+      "time": "12:05",
+      "stack": "mern",
+      "keywords": ["auth", "jwt", "cookies", "middleware"],
+      "summary": "Authentication uses JWT stored in httpOnly cookies.",
+      "solution": "Backend: jwt.js utils for signing, authMiddleware.js for verification.",
+      "code_files": ["Crowdfunding-Server/routes/authRoutes.js", "Crowdfunding/src/Contexts/AuthContext.jsx"],
+      "status": "completed"
+    },
+    {
+      "id": "20260511-121000-campaign-flow",
+      "title": "Campaign Management & Approval Flow",
+      "date": "2026-05-11",
+      "time": "12:10",
+      "stack": "mern",
+      "keywords": ["campaign", "creator", "admin", "approval"],
+      "summary": "Creators can create campaigns. Admin approval required.",
+      "solution": "Models: Campaign.js, RewardTier.js. Routes: campaignRoutes.js.",
+      "code_files": ["Crowdfunding-Server/models/Campaign.js", "Crowdfunding-Server/routes/campaignRoutes.js"],
+      "status": "completed"
+    },
+    {
+      "id": "20260511-121500-payment-integration",
+      "title": "Payment Integration (SSLCommerz & Stripe)",
+      "date": "2026-05-11",
+      "time": "12:15",
+      "stack": "mern",
+      "keywords": ["payment", "sslcommerz", "stripe", "donation"],
+      "summary": "Dual payment gateway support: SSLCommerz (BDT) and Stripe (USD).",
+      "solution": "Routes: paymentRoutes.js handles both gateways.",
+      "code_files": ["Crowdfunding-Server/routes/paymentRoutes.js"],
+      "status": "completed"
+    },
+    {
+      "id": "20260512-140000-secure-registration-flow",
+      "title": "Secure Registration & Creator Approval Flow",
+      "date": "2026-05-12",
+      "time": "14:00",
+      "stack": "mern",
+      "keywords": ["registration", "multer", "nid"],
+      "summary": "Multi-step registration with NID and Address verification for creators.",
+      "solution": "User model updated for NID storage. Register.jsx uses 3-step flow.",
+      "code_files": ["Crowdfunding/src/Pages/Register.jsx", "Crowdfunding-Server/routes/authRoutes.js"],
+      "status": "completed"
+    },
+    {
+      "id": "20260512-150000-multi-donation-reward-logic",
+      "title": "Multi-Donation Reward & Unique Counting",
+      "date": "2026-05-12",
+      "time": "15:00",
+      "stack": "mern",
+      "keywords": ["rewards", "cumulative", "unique-backers"],
+      "summary": "Updated reward eligibility to be based on cumulative contributions to a project.",
+      "solution": "Backend groups donations by user. Frontend matches total raised against all qualifying tiers.",
+      "code_files": ["Crowdfunding-Server/routes/campaignRoutes.js", "Crowdfunding/src/Pages/Dashboard.jsx"],
+      "status": "completed"
+    },
+    {
+      "id": "20260512-153000-secure-withdrawal-payout-system",
+      "title": "70/30 Withdrawal Split & Platform Fees",
+      "date": "2026-05-12",
+      "time": "15:30",
+      "stack": "mern",
+      "keywords": ["finance", "withdrawal", "fees", "milestones"],
+      "summary": "Implemented 10% platform fee and 70/30 payout split based on backer confirmation.",
+      "solution": "Withdrawal model updated. Rules added to WITHDRAWAL_RULES.md. New Financial Studio tab.",
+      "code_files": ["Crowdfunding-Server/routes/paymentRoutes.js", "WITHDRAWAL_RULES.md"],
+      "status": "completed"
+    },
+    {
+      "id": "20260512-160000-dashboard-optimization",
+      "title": "Dashboard Lazy Loading & Caching",
+      "date": "2026-05-12",
+      "time": "16:00",
+      "stack": "mern",
+      "keywords": ["performance", "lazy-loading", "caching"],
+      "summary": "Refactored dashboard to fetch data only for the active tab to improve speed.",
+      "solution": "Implemented tab-specific fetching logic and a simple session cache.",
+      "code_files": ["Crowdfunding/src/Pages/Dashboard.jsx"],
+      "status": "completed"
+    },
+    {
+      "id": "20260512-163000-ux-fixes-dev-tools",
+      "title": "Navbar Auto-Close & Dev Test Tools",
+      "date": "2026-05-12",
+      "time": "16:30",
+      "stack": "mern",
+      "keywords": ["ux", "dev-tools", "navbar"],
+      "summary": "Added 3s auto-close to profile menu and deadline control buttons for testers.",
+      "solution": "Used useEffect for timer. Added Expire Now/Reset buttons to Edit Campaign.",
+      "code_files": ["Crowdfunding/src/Components/Shared/Navbar.jsx", "Crowdfunding/src/Pages/EditCampaign.jsx"],
+      "status": "completed"
+    },
+    {
+      "id": "20260512-170000-detailed-withdrawal-tracking",
+      "title": "Detailed Withdrawal Cards & Stage Tracking",
+      "date": "2026-05-12",
+      "time": "17:00",
+      "stack": "mern",
+      "keywords": ["withdrawal", "finance", "stage", "split"],
+      "summary": "Enhanced the admin and creator withdrawal views with detailed financial breakdowns. Added stage tracking (70/30 split) to the Withdrawal model and updated logic to identify Stage 1 vs Stage 2 automatically. UI now shows Net Payout, Gross, Platform Fee, and Stage Badge.",
+      "solution": "1. Modified Withdrawal.js model to include 'stage' field. 2. Updated paymentRoutes.js to determine stage during creation and populate campaign financial data. 3. Updated Dashboard.jsx to render detailed withdrawal cards in both Admin Finance and Creator Payments tabs.",
+      "code_files": [
+        "Crowdfunding-Server/models/Withdrawal.js",
+        "Crowdfunding-Server/routes/paymentRoutes.js",
+        "Crowdfunding/src/Pages/Dashboard.jsx"
+      ],
+      "status": "completed"
+    },
+    {
+      "id": "20260512-180000-granular-reward-confirmation",
+      "title": "Granular Reward Confirmation & Financial Integrity",
+      "summary": "Fixed a bug where confirming one reward confirmed all project rewards. Switched to tier-level confirmation tracking in the Donation model and updated withdrawal logic to use this granular data for the 80% confirmation threshold.",
+      "solution": "1. Added 'confirmedRewardTierIds' to Donation.js. 2. Updated confirm-delivery route to accept tierId. 3. Recalculated confirmationRate in withdrawal-stats and fulfillment-monitor using tier-level counts. 4. Updated Dashboard.jsx UI for granular status tracking.",
+      "code_files": [
+        "Crowdfunding-Server/models/Donation.js",
+        "Crowdfunding-Server/routes/campaignRoutes.js",
+        "Crowdfunding/src/Pages/Dashboard.jsx"
+      ],
+      "status": "completed"
+    },
+    {
+      "id": "20260512-190000-notification-system-plan",
+      "title": "Universal Notification System Architectural Plan",
+      "summary": "Designed a comprehensive notification strategy for the MERN platform targeting Creators, Backers, and Admins. The plan includes real-time (Socket.io), In-app (DB), and Email layers.",
+      "solution": "1. Triggers: New contributions, Payout updates, Goal milestones, Verification status, and Fraud alerts. 2. Implementation: Notification model (recipient, type, message, link, isRead). 3. UI: Navbar bell icon with unread indicator and Real-time Toasts.",
+      "code_files": [],
+      "status": "planned"
+    },
+    {
+      "id": "20260512-193000-build-fixes-creator-updates",
+      "title": "Critical Build Fixes & Creator Updates UI Implementation",
+      "date": "2026-05-12",
+      "time": "19:30",
+      "stack": "mern",
+      "keywords": ["build-fix", "jsx-parse-error", "campaign-updates", "dashboard", "refactor"],
+      "summary": "Resolved critical build-breaking parse errors in Dashboard.jsx and CampaignDetails.jsx. Implemented the missing 'Campaign Updates' management interface for creators in the Dashboard.",
+      "solution": "1. Removed trailing junk code in Dashboard.jsx. 2. Fixed missing default export and state in CampaignDetails.jsx. 3. Added 'updates' tab to Creator Studio with post/delete functionality.",
+      "code_files": [
+        "Crowdfunding/src/Pages/Dashboard.jsx",
+        "Crowdfunding/src/Pages/CampaignDetails.jsx"
+      ],
+      "status": "completed"
+    }
+  ]
+}

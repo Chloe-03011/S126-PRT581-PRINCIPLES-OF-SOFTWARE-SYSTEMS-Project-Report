@@ -1,0 +1,30 @@
+{
+  "byDate": {
+    "TODO": ["TODO.md"],
+    "2026-05-11": [
+      "20260511-120000-project-architecture",
+      "20260511-120500-auth-system",
+      "20260511-121000-campaign-flow",
+      "20260511-121500-payment-integration"
+    ],
+    "2026-05-12": [
+      "20260512-140000-secure-registration-flow",
+      "20260512-150000-multi-donation-reward-logic",
+      "20260512-153000-secure-withdrawal-payout-system",
+      "20260512-160000-dashboard-optimization",
+      "20260512-163000-ux-fixes-dev-tools",
+      "20260512-170000-detailed-withdrawal-tracking",
+      "20260512-180000-granular-reward-confirmation",
+      "20260512-190000-notification-system-plan",
+      "20260512-193000-build-fixes-creator-updates",
+      "20260512-200000-dashboard-syntax-fix",
+      "20260512-203000-notification-provider-import-fix",
+      "20260512-204500-notification-routes-auth-fix",
+      "20260512-210000-navbar-notification-bell-fix",
+      "20260512-211500-frontend-date-fns-install",
+      "20260512-213000-notification-context-array-safety",
+      "20260512-223000-dashboard-approvals-enhancement",
+      "20260512-224500-dashboard-hide-ban-successful"
+    ]
+  }
+}

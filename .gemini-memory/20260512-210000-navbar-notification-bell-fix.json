@@ -1,0 +1,9 @@
+{
+  "id": "20260512-210000-navbar-notification-bell-fix",
+  "title": "Fixed NotificationBell ReferenceError in Navbar",
+  "summary": "Resolved an 'Uncaught ReferenceError: NotificationBell is not defined' in Navbar.jsx by adding the missing import from './NotificationBell'.",
+  "code_files": [
+    "Crowdfunding/src/Components/Shared/Navbar.jsx"
+  ],
+  "status": "completed"
+}
