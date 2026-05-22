@@ -2,42 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Color Classes */
-.bg-custom-black {
-  background-color: #000000;
-}
-.text-custom-black {
-  color: #000000;
-}
-
-.bg-custom-yellow {
-  background-color: #FFCC00;
-}
-.text-custom-yellow {
-  color: #FFCC00;
+/* New Color System Tokens (Mapped for backwards compatibility) */
+:root {
+  --color-primary: #5a9a8f;
+  --color-cream: #f5f1e8;
+  --color-light-blue: #a8d5e2;
+  --color-background: #fafbfc;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #666666;
+  --color-text-muted: #999999;
+  --color-border: #e8e8e8;
+  --color-white: #ffffff;
 }
 
-.bg-custom-blue {
-  background-color: #00BFFF;
+/* Redefining Legacy Custom Classes with New Palette */
+.bg-background {
+  background-color: var(--color-background);
 }
-.text-custom-blue {
-  color: #00BFFF;
+.text-text-primary {
+  color: var(--color-text-primary);
 }
 
-.bg-custom-white {
-  background-color: #FFFFFF;
+.bg-cream {
+  background-color: var(--color-cream);
 }
-.text-custom-white {
-  color: #FFFFFF;
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-white {
+  background-color: var(--color-white);
+}
+.text-text-primary {
+  color: var(--color-text-primary);
 }
 
 /* Gradients */
-.bg-grad-yellow {
-  background: linear-gradient(135deg, #FFCC00 0%, #000000 100%);
+.bg-grad-primary-cream {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-cream) 100%);
 }
 
-.bg-grad-blue {
-  background: linear-gradient(135deg, #00BFFF 0%, #000000 100%);
+.bg-grad-primary-blue {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-light-blue) 100%);
 }
 
 /* Pseudo-Random Cinematic Flicker Animation */
@@ -59,14 +72,30 @@
 
 /* Button & Card Refinements */
 .btn-yellow {
-  background-color: #FFCC00;
-  color: #000000;
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 .btn-yellow:hover {
   filter: brightness(110%);
+  background-color: var(--color-primary);
 }
 
 .card-yellow {
-  background-color: #FFCC00;
-  color: #000000;
+  background-color: var(--color-cream);
+  color: var(--color-text-primary);
+}
+
+/* Custom Scrollbar for the soft theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a8a7f;
 }

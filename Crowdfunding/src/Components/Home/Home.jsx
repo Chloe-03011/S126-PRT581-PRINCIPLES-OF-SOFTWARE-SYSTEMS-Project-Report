@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react';
 import CampaignCard from '../Shared/CampaignCard';
 import api from '../../api/axios';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { Gift, Heart, ArrowRight } from 'lucide-react';
+import { FaPaypal, FaStripe } from 'react-icons/fa';
 
 const Home = () => {
     const [featuredCampaigns, setFeaturedCampaigns] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchCampaigns = async () => {
@@ -22,101 +26,149 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="overflow-hidden bg-custom-white">
+        <div className="overflow-hidden bg-white">
             {/* Hero Section */}
-            <section className="relative bg-custom-black text-custom-white py-24 lg:py-32">
+            <section className="relative bg-background text-text-primary py-16 lg:py-24">
                 <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-custom-yellow bg-opacity-10 blur-[120px] rounded-full"></div>
-                    <div className="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-custom-blue bg-opacity-10 blur-[120px] rounded-full"></div>
+                    <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-cream opacity-20 blur-[120px] rounded-full"></div>
+                    <div className="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-primary opacity-10 blur-[120px] rounded-full"></div>
                 </div>
                 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-tight">
-                        BRING YOUR <span className="text-custom-yellow underline decoration-custom-blue underline-offset-8 decoration-4">VISION</span> TO LIFE
-                    </h1>
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-                        The world's most innovative crowdfunding platform for creative rewards and charitable donations.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                        <button className="w-full sm:w-auto bg-custom-white hover:bg-gray-100 text-custom-black px-10 py-5 rounded-full font-black text-lg transition-all shadow-xl shadow-white/10 active:scale-95">
+                <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
+                    <motion.h1 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter leading-tight"
+                    >
+                        EVERY <span className="text-primary underline decoration-primary underline-offset-8 decoration-4">DREAM</span> STARTS HERE
+                    </motion.h1>
+                    <motion.p 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1, duration: 0.6, ease: "easeOut" }}
+                        className="text-lg text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-bold uppercase tracking-wide"
+                    >
+                        The thoughtful way to fund creative projects and support causes that matter. Build your community, bring ideas to life.
+                    </motion.p>
+                    <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+                        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                    >
+                        <button 
+                            onClick={() => navigate('/explore?type=reward')}
+                            className="w-full sm:w-auto bg-primary text-white px-10 py-4 rounded-lg font-bold text-sm uppercase tracking-widest transition-all hover:opacity-90"
+                        >
                             Back a Reward Project
                         </button>
-                        <button className="w-full sm:w-auto bg-transparent hover:bg-white/5 border-2 border-white/20 px-10 py-5 rounded-full font-black text-lg transition-all active:scale-95 text-custom-white">
-                            Make a Donation
+                        <button 
+                            onClick={() => navigate('/explore?type=charity')}
+                            className="w-full sm:w-auto bg-white border border-border-light text-text-primary px-10 py-4 rounded-lg font-bold text-sm uppercase tracking-widest transition-all hover:bg-background"
+                        >
+                            Make an Impact
                         </button>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Crowdfunding Models Section */}
-            <section className="py-24 bg-custom-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl font-black text-custom-black mb-4">Choose Your Path</h2>
-                        <p className="text-gray-500">We offer two distinct ways to fund your dreams.</p>
+            <section className="py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-4">Pick Your Path</h2>
+                        <h3 className="text-4xl font-bold text-text-primary tracking-tight">Support innovation or make an impact.</h3>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8">
-                        {/* Reward Based Card: Yellow Background */}
-                        <div className="p-10 rounded-3xl bg-custom-yellow border border-black/5 hover:border-black/30 transition-all group">
-                            <div className="w-16 h-16 bg-custom-black rounded-2xl flex items-center justify-center mb-8 transform transition-transform group-hover:rotate-12">
-                                <svg className="w-8 h-8 text-custom-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-                                </svg>
+                        {/* Reward Based Card */}
+                        <div className="p-10 rounded-[40px] bg-cream border border-border-light shadow-xl shadow-text-primary/5 transition-all group hover:scale-[1.02]">
+                            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 border border-border-light shadow-sm transition-transform group-hover:rotate-6">
+                                <Gift className="text-primary" size={32} />
                             </div>
-                            <h3 className="text-3xl font-black text-custom-black mb-4">Reward Based</h3>
-                            <p className="text-custom-black text-opacity-70 mb-8 leading-relaxed">
-                                Fuel the next generation of innovation. Support visionary creators and secure exclusive perks, early-bird access, and one-of-a-kind physical rewards. Your commitment only triggers on an <span className="font-bold text-custom-black italic underline decoration-black/20">All or Nothing</span> basis—ensuring every project is fully powered to succeed.
+                            <h3 className="text-3xl font-bold text-text-primary mb-4 tracking-tighter uppercase">Reward Projects</h3>
+                            <p className="text-gray-500 mb-10 leading-relaxed text-sm font-semibold uppercase tracking-wide">
+                                Support creators bringing ideas to life. Back innovative projects and get exclusive rewards, early access, and the satisfaction of making it happen.
                             </p>
-                            <div className="flex items-center gap-6 mb-8 py-4 border-y border-black border-opacity-10">
-                                <span className="text-[10px] font-bold text-custom-black text-opacity-40 uppercase tracking-widest">Supported Methods</span>
-                                <div className="flex gap-4 opacity-70">
-                                    <span className="font-bold italic text-sm text-custom-black">PayPal</span>
-                                    <span className="font-bold text-sm text-custom-black">stripe</span>
+                            
+                            <div className="flex flex-col gap-6">
+                                <div className="flex items-center gap-4">
+                                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Pay with</span>
+                                    <div className="flex gap-2">
+                                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-border-light rounded-full shadow-sm">
+                                            <FaStripe className="text-primary" size={14} />
+                                            <span className="text-[10px] font-bold text-text-primary uppercase">Stripe</span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-border-light rounded-full shadow-sm">
+                                            <FaPaypal className="text-blue-600" size={12} />
+                                            <span className="text-[10px] font-bold text-text-primary uppercase italic">PayPal</span>
+                                        </div>
+                                    </div>
                                 </div>
+                                
+                                <button 
+                                    onClick={() => navigate('/explore?type=reward')}
+                                    className="w-fit text-primary font-bold uppercase text-xs tracking-widest flex items-center gap-2 group/btn transition-all"
+                                >
+                                    Learn about Rewards <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
+                                </button>
                             </div>
-                            <button className="text-custom-black font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
-                                Learn about Rewards <span>→</span>
-                            </button>
                         </div>
 
-                        {/* Donation Based Card: Sky Blue Background */}
-                        <div className="p-10 rounded-3xl bg-custom-blue border border-black/5 hover:border-black/30 transition-all group">
-                            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 transform transition-transform group-hover:rotate-12">
-                                <svg className="w-8 h-8 text-custom-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                </svg>
+                        {/* Donation Based Card */}
+                        <div className="p-10 rounded-[40px] bg-white border border-border-light shadow-xl shadow-text-primary/5 transition-all group hover:scale-[1.02]">
+                            <div className="w-16 h-16 bg-background rounded-2xl flex items-center justify-center mb-8 border border-border-light shadow-sm transition-transform group-hover:rotate-6">
+                                <Heart className="text-primary" size={32} />
                             </div>
-                            <h3 className="text-3xl font-black text-custom-white mb-4">Donation Based</h3>
-                            <p className="text-custom-white text-opacity-90 mb-8 leading-relaxed">
-                                Empower a cause that matters or support a life in need. Every dollar you give goes directly to the heart of the mission, with no minimum threshold to meet. Whether it’s a medical emergency or a community dream, your generosity makes an immediate impact under our <span className="font-bold text-custom-white italic underline decoration-white/20">Keep it All</span> model.
+                            <h3 className="text-3xl font-bold text-text-primary mb-4 tracking-tighter uppercase">Cause Projects</h3>
+                            <p className="text-gray-500 mb-10 leading-relaxed text-sm font-semibold uppercase tracking-wide">
+                                Support causes close to your heart. Your contribution makes a direct impact, whether it’s a personal emergency or a community dream. Every dollar counts.
                             </p>
-                            <div className="flex items-center gap-6 mb-8 py-4 border-y border-custom-white border-opacity-20">
-                                <span className="text-[10px] font-bold text-custom-white text-opacity-60 uppercase tracking-widest">Supported Methods</span>
-                                <div className="flex gap-4 opacity-90">
-                                    <span className="font-bold italic text-sm text-custom-white">PayPal</span>
-                                    <span className="font-bold text-sm text-custom-white">stripe</span>
-                                    <span className="font-extrabold text-sm tracking-tighter text-custom-white">SSL<span className="text-custom-yellow">C</span></span>
+
+                            <div className="flex flex-col gap-6">
+                                <div className="flex items-center gap-4">
+                                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Pay with</span>
+                                    <div className="flex flex-wrap gap-2">
+                                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-background border border-border-light rounded-full shadow-sm">
+                                            <FaStripe className="text-primary" size={14} />
+                                            <span className="text-[10px] font-bold text-text-primary uppercase">Stripe</span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-background border border-border-light rounded-full shadow-sm">
+                                            <FaPaypal className="text-blue-600" size={12} />
+                                            <span className="text-[10px] font-bold text-text-primary uppercase italic">PayPal</span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-background border border-border-light rounded-full shadow-sm">
+                                            <span className="text-[10px] font-black text-text-primary tracking-tighter">SSL<span className="text-primary">C</span></span>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <button 
+                                    onClick={() => navigate('/explore?type=charity')}
+                                    className="w-fit text-primary font-bold uppercase text-xs tracking-widest flex items-center gap-2 group/btn transition-all"
+                                >
+                                    Start Donating <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
+                                </button>
                             </div>
-                            <button className="text-custom-white font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
-                                Start Donating <span>→</span>
-                            </button>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Featured Campaigns Section */}
-            <section className="py-24 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <section className="py-20 bg-background">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                         <div>
-                            <h2 className="text-4xl font-black text-custom-black mb-4">Trending Campaigns</h2>
-                            <p className="text-gray-500">Discover projects that are making an impact right now.</p>
+                            <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-4">What's Trending</h2>
+                            <h3 className="text-4xl font-bold text-text-primary tracking-tight">Explore projects changing lives.</h3>
                         </div>
-                        <button className="bg-custom-black text-custom-white px-8 py-3 rounded-xl font-bold text-sm hover:bg-custom-yellow hover:text-custom-black transition-all">
-                            View All Projects
+                        <button 
+                            onClick={() => navigate('/explore')}
+                            className="bg-white text-text-primary px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-widest border border-border-light hover:bg-background transition-all"
+                        >
+                            Explore All Projects
                         </button>
                     </div>
 
@@ -139,13 +191,13 @@ const Home = () => {
             </section>
 
             {/* Payment Partner Strip */}
-            <section className="py-12 bg-custom-black overflow-hidden border-y border-gray-900">
-                <div className="flex lg:flex-row flex-col items-center justify-around gap-12 animate-flicker-random">
-                    <div className="text-white text-opacity-60 font-bold text-2xl italic tracking-tighter">Trusted By Global Partners</div>
-                    <div className="flex lg:flex-row flex-col items-center gap-12 opacity-60 hover:opacity-100 transition-opacity">
-                        <div className="text-custom-white font-black text-3xl">stripe</div>
-                        <div className="text-custom-white font-bold italic text-3xl">PayPal</div>
-                        <div className="text-custom-white font-black text-3xl tracking-tighter">SSL<span className="text-custom-yellow">COMMERZ</span></div>
+            <section className="py-16 bg-white border-y border-border-light">
+                <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                    <div className="text-text-primary font-bold text-sm uppercase tracking-[0.4em]">Our Partners</div>
+                    <div className="flex flex-wrap justify-center items-center gap-16">
+                        <div className="text-text-primary font-bold text-2xl uppercase tracking-widest">stripe</div>
+                        <div className="text-text-primary font-bold italic text-2xl">PayPal</div>
+                        <div className="text-text-primary font-extrabold text-2xl tracking-tighter">SSL<span className="text-primary">COMMERZ</span></div>
                     </div>
                 </div>
             </section>

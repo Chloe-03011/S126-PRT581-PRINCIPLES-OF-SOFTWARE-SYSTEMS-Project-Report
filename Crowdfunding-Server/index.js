@@ -17,7 +17,7 @@ import { Server } from 'socket.io';
 import { setIo } from './utils/notificationHelper.js';
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {

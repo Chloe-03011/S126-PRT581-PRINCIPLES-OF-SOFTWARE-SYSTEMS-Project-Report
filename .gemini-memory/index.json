@@ -25,6 +25,15 @@
       "20260512-213000-notification-context-array-safety",
       "20260512-223000-dashboard-approvals-enhancement",
       "20260512-224500-dashboard-hide-ban-successful"
+    ],
+    "2026-05-19": [
+      "20260519-004500-admin-stats-live-data",
+      "20260519-010000-dashboard-modular-refactor",
+      "20260519-020000-dashboard-and-navigation-enhancements"
+    ],
+    "2026-05-20": [
+      "20260520-110000-ui-redesign-p1-p2",
+      "20260520-120000-redesign-roadmap"
     ]
   }
 }

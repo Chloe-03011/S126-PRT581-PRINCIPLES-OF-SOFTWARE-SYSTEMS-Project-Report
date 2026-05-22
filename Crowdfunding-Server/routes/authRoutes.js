@@ -31,7 +31,7 @@ router.post('/register', upload, async (req, res) => {
         
         // Determine role and approval status
         const assignedRole = role === 'creator' ? ['creator'] : ['backer'];
-        const approvalStatus = role === 'creator' ? 'pending' : 'approved';
+        const approvalStatus = 'approved';
 
         const user = new User({
             name,
@@ -293,6 +293,29 @@ router.patch('/update-profile', verifyJWT, async (req, res) => {
         res.status(200).json({ message: 'Profile updated successfully', user });
     } catch (error) {
         console.error('Update Profile Error:', error);
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// Change Password
+router.patch('/change-password', verifyJWT, async (req, res) => {
+    try {
+        const { oldPassword, newPassword } = req.body;
+        const user = await User.findById(req.user.id);
+        
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        const isMatch = await bcrypt.compare(oldPassword, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ message: 'Incorrect old password' });
+        }
+
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+        user.password = hashedPassword;
+        await user.save();
+
+        res.status(200).json({ message: 'Password changed successfully' });
+    } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });

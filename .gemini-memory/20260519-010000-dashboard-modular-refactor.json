@@ -1,0 +1,29 @@
+{
+  "id": "20260519-010000-dashboard-modular-refactor",
+  "title": "Modular Dashboard Refactor & New Features",
+  "summary": "Refactored the monolithic Dashboard.jsx (~2300 lines) into a modular architecture using separate component files for each tab and modal under src/Components/Dashboard/. Implemented a 'View Profile' feature in User Management and added a dedicated 'My Donations' tab component.",
+  "code_files": [
+    "Crowdfunding/src/Pages/Dashboard.jsx",
+    "Crowdfunding/src/Components/Dashboard/Sidebar.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/OverviewTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/ApprovalsTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/UserApprovalsTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/UserManagementTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/SuccessStoriesTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/FinanceTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/FulfillmentMonitorTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/MyProjectsTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/BackerManagementTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/ContributionsTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/BackedProjectsTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/WithdrawalsTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/UpdatesTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/NotificationsTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/SettingsTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Tabs/MyDonationsTab.jsx",
+    "Crowdfunding/src/Components/Dashboard/Modals/CreatorApplicationModal.jsx",
+    "Crowdfunding/src/Components/Dashboard/Modals/PayoutRequestModal.jsx",
+    "Crowdfunding/src/Components/Dashboard/Modals/StatusUpdateModal.jsx"
+  ],
+  "status": "completed"
+}

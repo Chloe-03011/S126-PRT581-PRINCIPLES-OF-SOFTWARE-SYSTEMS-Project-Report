@@ -5,7 +5,7 @@ import Footer from '../Shared/Footer';
 
 const Root = () => {
     return (
-        <div className="min-h-screen flex flex-col bg-custom-white">
+        <div className="min-h-screen flex flex-col bg-white">
             <Navbar />
             <main className="flex-grow">
                 <Outlet />

@@ -1,0 +1,21 @@
+{
+  "id": "20260519-020000-dashboard-and-navigation-enhancements",
+  "title": "Dashboard Features, Form Validations, and Notification Fixes",
+  "summary": "Implemented password change functionality, enforced strict form requirements for campaigns and creator applications, fixed broken notification links via code updates and a DB migration, and enhanced homepage routing with deep-linking support.",
+  "details": "1. Added password change feature to SettingsTab (frontend & backend route). 2. Made all fields mandatory in CreatorApplicationModal and CreateCampaign (all phases). 3. Fixed incorrect notification links in campaignRoutes.js and paymentRoutes.js (e.g., my-campaigns -> my-projects). 4. Executed a migration script (fixNotificationLinks.js) to correct 8 existing broken links in MongoDB. 5. Updated homepage banner buttons to route to /explore with type=reward/charity filters. 6. Added a 'Coming Soon' modal for Forgot Password on the Login page. 7. Created SETUP_GUIDE.md for cross-device setup.",
+  "code_files": [
+    "Crowdfunding-Server/routes/authRoutes.js",
+    "Crowdfunding-Server/routes/campaignRoutes.js",
+    "Crowdfunding-Server/routes/paymentRoutes.js",
+    "Crowdfunding/src/Components/Dashboard/Tabs/SettingsTab.jsx",
+    "Crowdfunding/src/Pages/Dashboard.jsx",
+    "Crowdfunding/src/Components/Dashboard/Modals/CreatorApplicationModal.jsx",
+    "Crowdfunding/src/Pages/CreateCampaign.jsx",
+    "Crowdfunding/src/Pages/EditCampaign.jsx",
+    "Crowdfunding/src/Components/Home/Home.jsx",
+    "Crowdfunding/src/Pages/Explore.jsx",
+    "Crowdfunding/src/Pages/Login.jsx",
+    "SETUP_GUIDE.md"
+  ],
+  "status": "completed"
+}
