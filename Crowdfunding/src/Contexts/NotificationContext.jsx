@@ -35,7 +35,7 @@ export const NotificationProvider = ({ children }) => {
     // Socket implementation
     useEffect(() => {
         if (user) {
-            const newSocket = io(import.meta.env.VITE_SERVER_URL || 'http://localhost:5000', {
+            const newSocket = io(import.meta.env.VITE_SERVER_URL, {
                 withCredentials: true
             });
 
